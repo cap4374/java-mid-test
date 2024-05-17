@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: java-mid-test-app
+  namespace: ns-java-mid-test
+  annotations:
+    # nginx.ingress.kubernetes.io/rewrite-target: /customers
+    kubernetes.io/ingress.class: nginx
+  labels:
+    name: java-mid-test-app
+spec:
+  # ingressClassName: nginx
+  rules:
+  - host: javamid.example.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: java-mid-test-app
+            port: 
+              number: 80
+        path: /
+        pathType: Prefix
+        
+       
+
+ 

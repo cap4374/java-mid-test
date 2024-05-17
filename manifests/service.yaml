@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-mid-test-app
+  namespace: ns-java-mid-test
+spec:
+  type: ClusterIP
+  ports:
+    - protocol: TCP 
+      port: 80
+      targetPort: 8080
+  selector:
+    app: java-mid-test-app
+
+# ---
+
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: java-mid-test-app
+#   namespace: ns-java-mid-test
+# spec:
+#   selector:
+#     app: java-mid-test-app
+#   ports:
+#     - protocol: TCP 
+#       port: 80
+#       # targetPort: 8080
+#   type: LoadBalancer

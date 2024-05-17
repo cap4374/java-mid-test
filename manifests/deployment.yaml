@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-mid-test-deplpoyment
+  namespace: ns-java-mid-test
+  labels:
+    app: java-mid-test-app
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: java-mid-test-app
+  template:
+    metadata:
+      labels:
+        app: java-mid-test-app
+        azure.workload.identity/use: "true"
+    spec:
+      serviceAccountName: cap-test-poc-svc-acct
+      containers:
+      - name: java-mid-test-app
+        image: acrcaptesteus2poc.azurecr.io/javamidtest:2.7.4
+        imagePullPolicy: IfNotPresent         
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080

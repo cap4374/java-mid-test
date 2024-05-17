@@ -1,0 +1,13 @@
+FROM eclipse-temurin:11-jdk
+
+ENV PORT 8080
+
+EXPOSE 8080
+
+WORKDIR /app
+
+COPY /target /app/
+COPY /agent/applicationinsights-agent-3.5.2.jar /app/applicationinsights-agent-3.5.2.jar
+COPY /agent/applicationinsights.json /app/applicationinsights.json
+
+CMD ["java", "-javaagent:/app/applicationinsights-agent-3.5.2.jar", "-jar", "java-mid-test-0.0.1-SNAPSHOT.jar"]
