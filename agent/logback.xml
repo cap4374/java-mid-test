@@ -1,0 +1,8 @@
+<configuration>
+    <appender name="aiAppender" class="com.microsoft.applicationinsights.logback.ApplicationInsightsAppender">
+        <instrumentationKey>6a1db6d6-5218-48c3-89e3-4b7ae1f6bc8b</instrumentationKey>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="aiAppender" />
+    </root>
+</configuration>

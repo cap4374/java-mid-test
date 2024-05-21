@@ -4,9 +4,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import javax.activation.DataSource;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Primary;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import com.azure.identity.WorkloadIdentityCredentialBuilder;
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
@@ -18,6 +19,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DataSourceBean {    
     
+	// @Value("${azure.clientId}")
+	// private String clientId;
+
+	// @Value("${azure.tenantId}")
+	// private String tenatnId;
+
     @Bean("dataSource")
 	@ConfigurationProperties("spring.datasource")
 	@Primary

@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j 
 @Service 
 public class CustomerServiceImpl implements CustomerService {
 
@@ -14,12 +16,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> getAllCustomers() {
+        log.debug("RHYMOND:: getAllCustomers ");
         customerRepository.findAll();
         return (List<Customer>) customerRepository.findAll();
     }
 
     @Override
     public Customer getCustomer(Integer id) {
+        log.debug("RHYMOND:: getCustomer : " + id);
         Optional<Customer> customer = customerRepository.findById(id);
         return customer.get();
     }

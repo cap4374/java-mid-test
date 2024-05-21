@@ -4,7 +4,7 @@ metadata:
   name: java-mid-test-app
   namespace: ns-java-mid-test
   annotations:
-    # nginx.ingress.kubernetes.io/rewrite-target: /customers
+    ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/ingress.class: nginx
   labels:
     name: java-mid-test-app
@@ -18,8 +18,8 @@ spec:
           service:
             name: java-mid-test-app
             port: 
-              number: 80
-        path: /
+              number: 8080
+        path: /test
         pathType: Prefix
         
        

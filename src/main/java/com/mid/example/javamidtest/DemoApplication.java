@@ -22,6 +22,11 @@ public class DemoApplication {
 
 	@Bean
 	public CommandLineRunner run(CustomerService service){
+		log.debug("RHYMOND::Running CommandLineRunner-debug");
+		log.info("RHYMOND::Running CommandLineRunner-info");
+		log.warn("RHYMOND::Running CommandLineRunner-warn");
+		log.error("RHYMOND::Running CommandLineRunner-error");
+		
 		return (String[] args) -> {
 			Customer customer = service.getCustomer(1);
 			System.out.println(customer);
